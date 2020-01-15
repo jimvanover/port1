@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>button[disabled] {&#13;
+  -webkit-filter: grayscale(100%);&#13;
+  filter: grayscale(100%);&#13;
+}&#13;
+&#13;
+html {&#13;
+  height: 100%;&#13;
+  overflow: hidden;&#13;
+}&#13;
+&#13;
+body {&#13;
+  height: 100%;&#13;
+  overflow: auto;&#13;
+}&#13;
+&#13;
+a, a:hover, a:focus, a:visited {&#13;
+  color: inherit;&#13;
+}&#13;
+&#13;
+.pi-bh-fadeinout {&#13;
+  -webkit-transition: opacity 0.5s ease-in-out;&#13;
+  -moz-transition: opacity 0.5s ease-in-out;&#13;
+  -ms-transition: opacity 0.5s ease-in-out;&#13;
+  -o-transition: opacity 0.5s ease-in-out;&#13;
+  opacity: 1;&#13;
+  animation: pi-bh-fadein 0.5s;&#13;
+}&#13;
+&#13;
+.pi-bh-fadeout {&#13;
+  opacity: 0;&#13;
+}&#13;
+&#13;
+@keyframes pi-bh-fadein {&#13;
+  from {&#13;
+    opacity: 0;&#13;
+  }&#13;
+  to {&#13;
+    opacity: 1;&#13;
+  }&#13;
+}&#13;
+&#13;
+* {&#13;
+  -webkit-font-smoothing: antialiased;&#13;
+  -moz-osx-font-smoothing: grayscale;&#13;
+}&#13;
+&#13;
+main:not([data-page-id="7a8f82d173500010957080844ff6a7c1"]) {&#13;
+  height: calc(100% - 77px);&#13;
+  padding-top: 0px !important;&#13;
+}&#13;
+&#13;
+main &gt; div, div[widget="widget"] {&#13;
+  height: 100%;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+sp-page-row {&#13;
+  display: contents;&#13;
+}&#13;
+&#13;
+.container-fluid, .row,&#13;
+[class^="col-"], [class*=" col-"] {&#13;
+  margin-right: 0 !important;&#13;
+  margin-left: 0 !important;&#13;
+  padding-right: 0 !important;&#13;
+  padding-left: 0 !important;&#13;
+  height: 100%;&#13;
+}&#13;
+</css>
+        <name>SIFlex</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-25 21:55:54</sys_created_on>
+        <sys_id>e223abee73400010957080844ff6a72b</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>SIFlex</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_css_e223abee73400010957080844ff6a72b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 06:01:42</sys_updated_on>
+    </sp_css>
+</record_update>

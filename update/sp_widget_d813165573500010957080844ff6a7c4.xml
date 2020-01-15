@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.pi-bh-case-toggle {
+  color: $text-muted;
+  background-color: $primary-color;
+  height: 60px;
+
+
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+
+  ul {
+    list-style: none;
+    margin: 17px auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .bhct-selected {
+
+    &gt; div {
+      opacity: 1;
+    }
+  }
+
+  li {
+    padding: 5px 17px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &gt; div {
+      opacity: 0.4;
+    }
+
+    &gt; div:last-of-type {
+      opacity: 1;
+    }
+
+    position: relative;
+  }
+
+  .bhct-casecount {
+    position: absolute;
+    top: 0;
+
+    right: -5px;
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background-color: #E95600;
+    color: white;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  svg {
+
+    path {
+      fill: $text-muted;
+    }
+
+    polygon {
+      fill: $text-muted;
+    }
+  }
+
+  .bhct-idea svg {
+    width: 25px;
+    max-height: 30px;
+    fill: $text-muted;
+  }
+
+  .bhct-concern svg {
+    max-height: 27px;
+  }
+
+
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>travel_subheader</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Travel Subheader</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */	var agg = new GlideAggregate('sn_travel_applicat_travel_request');	agg.addAggregate('COUNT');	agg.addQuery('opened_by', gs.getUserID());	agg.query();	agg.next();	data.totalCount = parseInt(agg.getAggregate('COUNT'));})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-04 05:09:06</sys_created_on>
+        <sys_id>d813165573500010957080844ff6a7c4</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>Travel Subheader</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_widget_d813165573500010957080844ff6a7c4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 06:05:48</sys_updated_on>
+        <template><![CDATA[<div class="pi-bh-case-toggle">    <a href="?"><div class="bhp-home" ng-include="'/pi-bh-home.svg'"></div></a>    <ul>        <li class="bhct-idea"            ng-click="c.setType('idea')"            ng-class="{'bhct-selected': c.type === 'idea'}">            <div>                <svg viewBox="0 0 54 40" preserveAspectRatio="none">                    <use xlink:href="#travel"></use>                </svg>            </div>            <div>${Requests}</div>            <div class="bhct-casecount" ng-show="c.data.totalCount > 0">{{c.data.totalCount}}</div>        </li>    </ul></div>]]></template>
+    </sp_widget>
+</record_update>

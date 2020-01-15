@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+    <question_choice action="DELETE">
+        <misc>0</misc>
+        <order>200</order>
+        <question display_value="Country">aaa17a3d73100010957080844ff6a70f</question>
+        <rec_misc>0</rec_misc>
+        <sys_class_name>question_choice</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-14 16:34:42</sys_created_on>
+        <sys_id>cedf483cdb244890f33dae5a4896193a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>France </sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>question_choice_cedf483cdb244890f33dae5a4896193a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-14 16:34:42</sys_updated_on>
+        <text>France </text>
+        <value>France </value>
+    </question_choice>
+    <fx_price action="delete_multiple" query="id=cedf483cdb244890f33dae5a4896193a"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>misc</field>
+        <id>cedf483cdb244890f33dae5a4896193a</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-14 16:34:42</sys_created_on>
+        <sys_id>30ef843cdb244890f33dae5a489619a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-14 16:34:42</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_misc</field>
+        <id>cedf483cdb244890f33dae5a4896193a</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-14 16:34:42</sys_created_on>
+        <sys_id>f4ef843cdb244890f33dae5a489619a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-14 16:34:42</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Travel Application">402be69673000010957080844ff6a740</application>
+        <file_path/>
+        <instance_id>fb8f87bedbfae600536af5b0cf9619e1</instance_id>
+        <instance_name>hackathon209</instance_name>
+        <name>question_choice_cedf483cdb244890f33dae5a4896193a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice"><question_choice action="INSERT_OR_UPDATE"><misc>0</misc><order>200</order><question display_value="Country">aaa17a3d73100010957080844ff6a70f</question><rec_misc>0</rec_misc><sys_class_name>question_choice</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2019-10-14 16:34:42</sys_created_on><sys_id>cedf483cdb244890f33dae5a4896193a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>France </sys_name><sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package><sys_policy/><sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope><sys_update_name>question_choice_cedf483cdb244890f33dae5a4896193a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-10-14 16:34:42</sys_updated_on><text>France </text><value>France </value></question_choice><fx_price action="delete_multiple" query="id=cedf483cdb244890f33dae5a4896193a"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>misc</field><id>cedf483cdb244890f33dae5a4896193a</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>admin</sys_created_by><sys_created_on>2019-10-14 16:34:42</sys_created_on><sys_id>30ef843cdb244890f33dae5a489619a1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-10-14 16:34:42</sys_updated_on><table>question_choice</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_misc</field><id>cedf483cdb244890f33dae5a4896193a</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>admin</sys_created_by><sys_created_on>2019-10-14 16:34:42</sys_created_on><sys_id>f4ef843cdb244890f33dae5a489619a0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-10-14 16:34:42</sys_updated_on><table>question_choice</table><type>calculated</type></fx_price></record_update>]]></payload>
+        <payload_hash>-771619214</payload_hash>
+        <record_name>France </record_name>
+        <reverted_from/>
+        <source>a66dd8ee1bdc4890a67664a6bc4bcbc8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-14 16:34:42</sys_created_on>
+        <sys_id>7cef843cdb244890f33dae5a489619a2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16dcb1f341b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-14 16:34:42</sys_updated_on>
+        <type>Question Choice</type>
+        <update_guid>b4ef843c0a244890ff32fbcf277bd1a2</update_guid>
+        <update_guid_history>b4ef843c0a244890ff32fbcf277bd1a2:-771619214</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="France ">89f6f011dba8c890f33dae5a48961911</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>joel.andersson</sys_created_by>
+        <sys_created_on>2019-10-16 08:42:21</sys_created_on>
+        <sys_db_object display_value="" name="question_choice">question_choice</sys_db_object>
+        <sys_id>00e344aecfb84100804819a0b5a69510</sys_id>
+        <sys_metadata>cedf483cdb244890f33dae5a4896193a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>France </sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_parent display_value="Country">aaa17a3d73100010957080844ff6a70f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_scope_delete/>
+        <sys_update_name>question_choice_cedf483cdb244890f33dae5a4896193a</sys_update_name>
+        <sys_update_version display_value="question_choice_cedf483cdb244890f33dae5a4896193a">7cef843cdb244890f33dae5a489619a2</sys_update_version>
+        <sys_updated_by>joel.andersson</sys_updated_by>
+        <sys_updated_on>2019-10-16 08:42:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

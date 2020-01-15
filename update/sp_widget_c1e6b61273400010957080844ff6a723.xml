@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function HomeCtrl($scope) {
+	var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.travel-wrapper {
+  display: flex;
+  flex: 1 1 100%;
+  height: 100%;
+
+  .request-travel, .expense-report {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .request-travel {
+    background-color: $secondary-color;
+    color: $primary-color;
+    svg {
+      fill: $primary-color;
+      width: 54px;
+      height: 40px;
+    }
+  }
+
+  .expense-report {
+    background-color: $primary-color;
+    color: $secondary-color;
+    svg {
+      width: 37px;
+      height: 34px;
+    }
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>travel_home</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Travel Home</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-25 00:04:19</sys_created_on>
+        <sys_id>c1e6b61273400010957080844ff6a723</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>Travel Home</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_widget_c1e6b61273400010957080844ff6a723</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 23:01:28</sys_updated_on>
+        <template><![CDATA[<ng-include src="'travel-icons'"></ng-include>
+
+<div class="travel-wrapper">
+    <div class="request-travel">
+        <a href="?id=request_travel&sys_id=c0393b2273c00010957080844ff6a70e">
+            <div>
+
+                <svg viewBox="0 0 54 40" preserveAspectRatio="none">
+                    <use xlink:href="#travel"></use>
+                </svg>
+
+            </div>
+            <h1>
+                ${Travel Request}
+            </h1>
+            <div>
+                ${SUBMIT REQUEST BEFORE MAKING PLANS}
+            </div>
+        </a>
+        <div class="request-history"></div>
+    </div>
+    <div class="expense-report">
+        <a href="#">
+
+            <svg viewBox="0 0 37 34" preserveAspectRatio="none">
+                <use xlink:href="#expense"></use>
+            </svg>
+
+            <h1>
+                ${Expense Report}
+            </h1>
+            <div>
+                ${KEEP UP TO DATE WITH YOUR EXPENSES}
+            </div>
+        </a>
+        <div class="expense-history"></div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

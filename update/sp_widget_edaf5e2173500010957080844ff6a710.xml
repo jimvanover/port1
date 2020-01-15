@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function TravelSummaryCtrl($document, $rootScope, $timeout, NgMap, GeoCoder) {
+  var c = this;
+  c.$onInit = function() {
+    c.show = false;
+    $rootScope.sc_cat_item._sections.forEach(function(section) {
+      section.label = $rootScope.sc_cat_item._fields[section.id].variable_name;
+      section.children = [];
+      $rootScope.sc_cat_item._fields[section.id]._children.forEach(function(
+        child
+      ) {
+        if ($rootScope.sc_cat_item._fields[child].type != "widget") {
+          section.children.push($rootScope.sc_cat_item._fields[child]);
+        }
+      });
+      if (section.children.length == 0) {
+        section.hide = true;
+      }
+    });
+
+    c.sections = $rootScope.sc_cat_item._sections;
+    c.origin =
+      "ExCeL London, Royal Victoria Dock, 1 Western Gateway, Royal Docks, London E16 1XL";
+    c.destination = c.sections[0].children[2].value;
+    if (c.sections[0].children[1].displayValue) {
+      c.destination =
+        c.destination + ", " + c.sections[0].children[1].displayValue;
+    }
+
+    GeoCoder.geocode({
+      address: c.origin
+    }).then(function(result) {
+      //explore this, you may got the position in: result[0].geometry.location
+      var location = [];
+      location.push(result[0].geometry.location.lat());
+      location.push(result[0].geometry.location.lng());
+      c.origin_location = location;
+
+      GeoCoder.geocode({
+        address: c.destination
+      }).then(function(result) {
+        //explore this, you may got the position in: result[0].geometry.location
+        var location = [];
+        location.push(result[0].geometry.location.lat());
+        location.push(result[0].geometry.location.lng());
+        c.destination_location = location;
+        c.show = true;
+      });
+    });
+
+    
+
+    console.log(c);
+  };
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.summary-wrap {
+  .summary {
+    display: flex;
+
+    .map {
+      flex: 1;
+    }
+
+    .summary-items {
+      margin-left: 50px;
+    }
+  }
+
+  .section-field {
+    .child-label {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .child-value {
+      margin-left: 10px;
+    }
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>travel_record_producer_summary</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Travel Record Producer Summary</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */ /* e.g., data.table = $sp.getValue('table'); */ if (
+    input
+  ) {
+    data.input = input;
+  }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-05 00:42:33</sys_created_on>
+        <sys_id>edaf5e2173500010957080844ff6a710</sys_id>
+        <sys_mod_count>111</sys_mod_count>
+        <sys_name>Travel Record Producer Summary</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_widget_edaf5e2173500010957080844ff6a710</sys_update_name>
+        <sys_updated_by>fabio</sys_updated_by>
+        <sys_updated_on>2019-10-16 21:16:08</sys_updated_on>
+        <template><![CDATA[<div class="summary-wrap">
+  <div class="summary">
+    <div class="map">
+      <ng-map ng-if="c.show"
+        id="my-map-1"
+        zoom-to-include-markers="true"
+        style="height: 100%;"
+        scrollwheel="false"
+        street-view-control="false"
+        zoom-control="true"
+        fullscreen-control="false"
+        map-type-id="TERRAIN"
+      >
+        <shape name="polyline" 
+      path="[ {{c.origin_location}}, {{c.destination_location}}]"
+      geodesic="true"
+      stroke-color="#55afed"
+      stroke-opacity="0.9"
+      stroke-weight="2">
+    </shape>
+        
+    <marker
+      position="{{ c.origin_location }}"
+      title="{{ c.origin }}"
+      icon="http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+    ></marker>
+    <marker
+      position="{{ c.destination_location }}"
+      title="{{ c.destination }}"
+      icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+      ></marker>
+      </ng-map>
+    </div>
+    <div class="summary-items">
+      <h1>Summary</h1>
+      <div class="sections">
+        <div
+          class="section"
+          ng-repeat="section in c.sections"
+          ng-if="!section.hide"
+        >
+          <h3>{{ section.label }}</h3>
+          <div class="section-fields">
+            <div class="section-field" ng-repeat="child in section.children">
+              <span class="child-label">{{ child.label }}</span>
+              <span class="child-value">{{ child.displayValue }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

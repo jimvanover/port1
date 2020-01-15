@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function TravelStatusCtrl($rootScope, $location, $scope, spUtil) {
+	/* widget controller */
+	var c = this;
+	c.goHome = goHome;
+
+	c.$onInit = function() {
+		spUtil.recordWatch($scope, "sn_travel_applicat_travel_request", "sys_id=" + c.data.travel_sys_id, function(response) {
+			c.server.update();
+		});
+
+		$rootScope.$broadcast('updateTotal');
+	};
+
+	function goHome() {
+		$location.search({});
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.bhp-steps {
+  justify-content: center;
+
+  svg {
+    fill: #fc8771
+  }
+}
+
+.travel-status {
+  margin-top: 50px;
+  color: #30496E;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.notes {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  .note {
+    display: flex;
+    margin-top: 30px;
+
+
+    .note-text {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      width: 70px;
+    }
+  }
+}
+
+.actions {
+  margin-top: 20px;
+
+  button {
+    padding: 15px 30px;
+    background-color: transparent;
+    border: solid 1px #EE8C74;
+    color: #EE8C74;
+    text-transform: uppercase;
+  }
+}
+
+
+.approved {
+  .bhp-stepno {
+
+    svg {
+      fill: green
+    }
+  }
+}
+
+.partners {
+  margin-top: 100px;
+  .partners-text {
+    margin-bottom: 25px;
+  }
+  //width: 697px;
+  //margin: 0 auto;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>travel_status</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Travel Status</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	var travel_sys_id = $sp.getParameter('sys_id');
+	data.travel_sys_id = travel_sys_id;
+
+	if (travel_sys_id) {
+		var travelGr = new GlideRecord('sn_travel_applicat_travel_request');
+		if (travelGr.get(travel_sys_id)) {
+			var obj = {};
+			$sp.getRecordElements(obj, travelGr, 'approval,short_description');
+			data.travel = obj;
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-29 20:23:02</sys_created_on>
+        <sys_id>2944373b73000010957080844ff6a778</sys_id>
+        <sys_mod_count>154</sys_mod_count>
+        <sys_name>Travel Status</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_widget_2944373b73000010957080844ff6a778</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 04:26:02</sys_updated_on>
+        <template><![CDATA[<script type="text/ng-template" id="progress-completed.xml">
+    <div class="pi-bh-progress">
+        <div class="pi-bhp-container">
+            <a href="?">
+                <div class="bhp-home" ng-include="'/pi-bh-home.svg'"></div>
+            </a>
+            <div class="bhp-steps pi-bh-fadeinout">
+                <div class="bhp-stepno">
+                    <span ng-if="c.data.travel.approval.value != 'approved'">
+                    Request Submitted
+                    </span>
+
+                    <span ng-if="c.data.travel.approval.value == 'approved'">
+                        Request Approved
+                    </span>
+
+                    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+                    <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                         x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"
+                         enable-background="new 0 0 24 24" xml:space="preserve"><g id="Filled_Icons_1_"><g id="Filled_Icons"><path d="M23.854,7.146l-3.5-3.5c-0.195-0.195-0.512-0.195-0.707,0L7.5,15.792l-3.147-3.146c-0.195-0.195-0.512-0.195-0.707,0    l-3.5,3.5c-0.195,0.195-0.195,0.512,0,0.707l7,7c0.195,0.196,0.512,0.196,0.707,0l16-16C24.049,7.658,24.049,7.341,23.854,7.146z"></path></g><g
+                            id="New_icons"></g></g>
+                        <g id="Invisible_Shape"><rect fill="none" width="24" height="24"></rect></g></svg>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</script>
+<div>
+
+
+    <si-progress ng-class="{'approved':  c.data.travel.approval.value == 'approved' }"
+                 template="progress-completed.xml"></si-progress>
+
+    <div ng-if="c.data.travel.approval.value != 'approved'" class="travel-status">
+        <h1>
+            Thank you for submitting your request. We will let you know
+            once it is approved.
+        </h1>
+
+        <div class="notes">
+            <div class="note">
+                <div class="icon">
+
+                    <svg width="52px" height="39px" viewBox="0 0 52 39" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="14-Submit-Concern" transform="translate(-371.000000, -514.000000)" fill="#2D2B5D"
+                               fill-rule="nonzero">
+                                <g id="content" transform="translate(67.000000, 305.000000)">
+                                    <g id="info" transform="translate(304.000000, 199.000000)">
+                                        <g id="forwarded">
+                                            <g id="icon_concern" transform="translate(0.000000, 10.000000)">
+                                                <path d="M30.5406699,19.5036279 C30.5406699,12.5690047 24.2583732,6.93462326 15.923445,6.93462326 C9.33014354,6.93462326 2.67464115,12.5690047 2.67464115,19.5036279 C2.67464115,26.4382512 7.89952153,32.0726326 15.923445,32.0726326 C17.1052632,32.0726326 19.5933014,31.9488 20.7129187,31.7011349 L25.2535885,34.7350326 L25.2535885,30.0293953 C28.4880383,27.3669953 30.5406699,23.8996837 30.5406699,19.5036279 L30.5406699,19.5036279 Z M20.4019139,34.3635349 C19.4066986,34.4873674 17.0430622,34.7350326 15.923445,34.7350326 C6.40669856,34.7350326 0,27.6765767 0,19.3797953 C0,11.083014 8.02392344,4.33413953 15.923445,4.33413953 C25.5023923,4.33413953 33.215311,11.083014 33.215311,19.3797953 C33.215311,24.2092651 31.4114833,28.2957395 27.9282297,31.2058047 L27.9282297,38.6976744 L20.4019139,34.3635349 Z M39.1244019,30.1532279 C38.7511962,30.2151442 35.2057416,30.834307 30.8516746,30.5866419 C31.2248804,30.0293953 31.9712919,29.3483163 32.6555024,28.1099907 C32.6555024,28.1099907 36.3875598,28.5434047 39.4354067,27.4908279 L43.9760766,30.5247256 L43.9760766,25.8190884 C47.2105263,23.2186047 49.3253589,19.6893767 49.3253589,15.2933209 C49.2631579,8.2967814 42.9186603,2.6624 34.645933,2.6624 C33.215311,2.6624 31.2870813,2.53856744 27.1196172,5.51054884 C26,4.95330233 25.6267943,4.64372093 24.507177,4.33413953 C28.2392344,0.866827907 32.0334928,-7.10542736e-15 34.708134,-7.10542736e-15 C44.2870813,-7.10542736e-15 52,6.74887442 52,15.0456558 C52,19.8751256 50.1339713,23.8996837 46.7129187,26.8716651 L46.7129187,34.4254512 L39.1244019,30.1532279 Z M36.8097323,23.6006734 C36.0633208,23.6006734 35.5657131,23.0434269 35.5657131,22.2385153 C35.5657131,21.4336036 36.1255217,20.8763571 36.8719332,20.8763571 C37.6805457,20.8763571 38.1781533,21.4336036 38.1781533,22.2385153 C38.1159524,23.0434269 37.5561437,23.6006734 36.8097323,23.6006734 L36.8097323,23.6006734 Z M36.0633208,19.2046176 L35.752316,8.74076642 L37.8671485,8.74076642 L37.5561437,19.2046176 L36.0633208,19.2046176 Z"
+                                                      id="Shape"></path>
+                                                <polygon id="Shape"
+                                                         points="14.2736269 21.317081 11.2310737 18.3813953 9.6744186 19.8492382 14.2736269 24.1860465 22.9767442 15.9794707 21.4200891 14.5116279"></polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="note-text">
+                    Your request has been forwarded to
+                    your manager.
+                </div>
+            </div>
+            <div class="note">
+                <div class="icon">
+
+                    <svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="14-Submit-Concern" transform="translate(-380.000000, -595.000000)" fill="#2D2B5D">
+                                <g id="content" transform="translate(67.000000, 305.000000)">
+                                    <g id="info" transform="translate(304.000000, 199.000000)">
+                                        <g id="average-time" transform="translate(9.000000, 87.000000)">
+                                            <g id="time" transform="translate(0.000000, 4.000000)">
+                                                <path d="M16.1454073,2.36204506 C12.6852686,2.40779896 9.38526863,3.73466205 6.63431542,6.39410745 C6.30831889,6.70866551 5.95372617,6.9202773 5.49046794,6.84020797 C5.03864818,6.76013865 4.72409012,6.5084922 4.58682842,6.06811092 C4.44384749,5.61057192 4.53535529,5.19878683 4.87850953,4.85563258 C5.86221837,3.86048527 6.94887348,2.99688042 8.15563258,2.28769497 C11.2840555,0.434662045 14.6755633,-0.291681109 18.2958406,0.108665511 C25.4448873,0.897920277 31.289948,6.28544194 32.6568458,13.3143847 C34.3897747,22.2249567 28.5904679,30.8495667 19.6627383,32.639688 C11.9131716,34.1953206 3.99202773,29.8601386 1.1610052,22.4766031 C-0.589081456,17.9126516 -0.343154246,13.417331 1.78440208,9.02495667 C2.10467938,8.36152513 2.79670711,8.10987868 3.40294627,8.41299827 C3.99202773,8.70467938 4.20935875,9.40814558 3.88908146,10.0601386 C3.14558059,11.5585789 2.64800693,13.1256499 2.4592721,14.789948 C2.047487,18.4445407 2.89965338,21.7788562 5.06724437,24.7414211 C7.27487002,27.7611785 10.2202773,29.6771231 13.9206239,30.3462738 C21.7331023,31.7532062 28.6133449,26.6459272 30.2090121,19.7256499 C31.627383,13.5431542 28.9164645,7.26343154 23.5289428,4.19792028 C21.3556326,2.95684575 19.005026,2.37920277 16.1454073,2.36204506 Z"
+                                                      id="Shape"></path>
+                                                <path d="M17.7467938,12.067591 C17.7467938,13.4974003 17.752513,14.9272097 17.7410745,16.3570191 C17.7410745,16.5400347 17.7982669,16.6487002 17.9412478,16.7630849 C19.6684575,18.1242634 21.3956672,19.4911612 23.1171577,20.8580589 C23.7634315,21.3727903 23.8263432,22.1792028 23.2601386,22.7110919 C22.8540728,23.0942808 22.2135182,23.1343154 21.7960139,22.8025997 C19.8514731,21.2526863 17.9126516,19.702773 15.9623917,18.1585789 C15.584922,17.8611785 15.4190641,17.4951473 15.4190641,17.0261698 C15.4247834,13.9778163 15.4190641,10.9294627 15.4247834,7.88110919 C15.4247834,6.97746967 16.1053726,6.41126516 16.9117851,6.63431542 C17.4265165,6.77157712 17.752513,7.21195841 17.752513,7.78388215 C17.752513,9.21369151 17.7467938,10.6435009 17.7467938,12.067591 Z"
+                                                      id="Shape"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="note-text">
+                    You can expect an email response within the next 48 hours.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="actions">
+            <button ng-click="c.goHome()">Home</button>
+        </div>
+    </div>
+
+    <div ng-if="c.data.travel.approval.value == 'approved'" class="travel-status">
+        <h1>
+            Good news! Your travel request has been approved.
+        </h1>
+        <h2>
+            Please go ahead and make your travel plans.
+        </h2>
+
+        <div class="partners">
+            <div class="partners-text">
+                Partners link:
+            </div>
+            <div class="partners-images">
+                <img src="partners-logo.png" alt="">
+            </div>
+        </div>
+
+
+
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

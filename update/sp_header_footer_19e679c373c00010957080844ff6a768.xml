@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function TravelHeaderCtrl($scope, spUtil, $location) {
+
+	var c = this;
+	c.showCount = true;
+
+	c.$onInit = function() {
+		spUtil.recordWatch($scope,
+			'sn_travel_applicat_travel_request',
+			'opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe', function(d) {
+				c.server.refresh().then(function() {
+					setCounts();
+				});
+			});
+
+		$scope.$on('updateTotal', function() {
+			c.server.refresh().then(function() {
+				setCounts();
+			});
+		});
+		setCounts();
+	};
+
+	function setCounts() {
+		c.pending = {label: "Pending", count: c.data.requested};
+		c.approved = {label: "Approved", count: c.data.approved};
+		c.rejected = {label: "Rejected", count: c.data.rejected};
+		c.ideaCount = c.data.requested + "Requested";
+
+		// c.concernCount = i18n.format(i18n.getMeadmin	ssage('{0} Concerns'), c.data.concernCount)
+	}
+
+	c.avatarStyle = {
+		'background-image': 'url(' + $scope.user.photo + ')'
+	};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$pi-bh-header-background: white !default;
+$pi-bh-header-count-color: $brand-primary !default;
+
+#pi-bh-head {
+  height: 77px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: $pi-bh-header-background;
+
+  &gt; div {
+    flex: 0 0 33%;
+  }
+
+}
+
+#bh-user-details {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+#bh-logo {
+  font-size: 17px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  justify-content: center;
+  display: flex;
+
+  &gt; a {
+    display: contents;
+
+
+    &gt; span &gt; em {
+      color: $brand-primary;
+      font-style: normal;
+    }
+  }
+
+  div {
+    display: inline-block;
+  }
+}
+
+#bh-spiel {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.6);
+
+  img {
+    vertical-align: text-bottom;
+    position: relative;
+    top: -1px;
+    margin: 0 2px;
+  }
+}
+
+.bh-user-avatar {
+  height: 54px;
+  width: 54px;
+  border-radius: 27px;
+  background-color: #f1f1f2;
+  margin: 0 10px 0 0;
+  background-size: cover;
+  flex-shrink: 0;
+  background-position: center;
+}
+
+.bh-welcome {
+  font-weight: 600;
+}
+
+.bh-head-details {
+  //text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 54px;
+}
+
+.bh-case-count {
+  //text-align: center;
+  display: flex;
+
+  height: 25px;
+  //justify-content: space-around;
+  //padding: 0 15px;
+  margin-top: 7px;
+
+  .count-inner {
+    background-color: #F5E9DD;
+    font-size: 12px;
+    line-height: 25px;
+    border-radius: 20px;
+    padding-left: 4px;
+    padding-top: 1px;
+
+    &gt; a {
+      display: flex;
+    }
+
+    display: flex;
+    align-items: center;
+
+    &gt; a &gt; div {
+      display: flex;
+      margin-right: 5px;
+      align-items: center;
+
+      span {
+        color: #004C91;
+        font-size: 16px;
+      }
+
+      .count {
+        font-weight: bold;
+
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: #004C91;
+        color: #F5E9DD;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .label {
+        font-weight: normal;
+      }
+
+
+    }
+  }
+}
+
+.powered-by {
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+
+  #bh-spiel {
+    display: none;
+  }
+
+  #pi-bh-head &gt; div {
+    flex: 1 0 auto;
+  }
+}
+
+@media (max-width: 585px) {
+
+  #bh-logo {
+
+    svg {
+      display: none;
+    }
+
+  }
+
+  .bh-user-avatar {
+    display: none;
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Travel Request Header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+
+		var agg = new GlideAggregate('sn_travel_applicat_travel_request');
+		agg.addAggregate('COUNT');
+		agg.addQuery('opened_by', gs.getUserID());
+		agg.addQuery('approval', 'requested');
+		agg.query();
+		agg.next();
+
+		data.requested = parseInt(agg.getAggregate('COUNT'));
+
+
+		agg = new GlideAggregate('sn_travel_applicat_travel_request');
+		agg.addAggregate('COUNT');
+		agg.addQuery('opened_by', gs.getUserID());
+		agg.addQuery('approval', 'approved');
+		agg.query();
+		agg.next();
+		data.approved = parseInt(agg.getAggregate('COUNT'));
+
+		agg = new GlideAggregate('sn_travel_applicat_travel_request');
+		agg.addAggregate('COUNT');
+		agg.addQuery('opened_by', gs.getUserID());
+		agg.addQuery('approval', 'rejected');
+		agg.query();
+		agg.next();
+		data.rejected = parseInt(agg.getAggregate('COUNT'));
+
+
+	}
+
+)();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-27 03:19:42</sys_created_on>
+        <sys_id>19e679c373c00010957080844ff6a768</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>Travel Request Header</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_header_footer_19e679c373c00010957080844ff6a768</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 06:47:15</sys_updated_on>
+        <template><![CDATA[<script type="text/ng-template" id="/pi-bh-home.svg">
+    <svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="02a-Yes/No-Questions:-Benefit-Company?" transform="translate(-31.000000, -173.000000)" fill="#EE8C74"
+               fill-rule="nonzero">
+                <g id="progress" transform="translate(0.000000, 141.000000)">
+                    <g id="home" transform="translate(20.000000, 20.000000)">
+                        <path d="M28.6516042,19.1218354 L20.4027915,12.1516299 C20.1627093,11.9516019 19.8134989,11.9477552 19.5734167,12.1503477 L11.2283144,19.1744068 C10.7712595,19.5616405 11.0472899,20.3066165 11.6417179,20.3066165 L14.8526565,20.3066165 L14.8526565,27.3588847 C14.8526565,27.7140626 15.1402416,28 15.4945875,28 L18.7042422,28 L18.7042422,23.5121929 C18.7042422,23.1582973 18.9918273,22.8710776 19.3461732,22.8710776 L20.6300351,22.8710776 C20.984381,22.8710776 21.271966,23.1582973 21.271966,23.5121929 L21.271966,28 L24.4816208,28 C24.8359667,28 25.1235517,27.7140626 25.1235517,27.3588847 L25.1235517,20.3066165 C25.1235517,20.3066165 28.3524644,20.3078987 28.3588837,20.3066165 C29.0662916,20.3053342 29.2242066,19.4154662 28.6516042,19.1218354 Z"
+                              id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</script>
+
+
+<div class="icons" style="display: none;">
+
+    <svg id="travel" viewBox="0 0 54 40">
+        <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
+            <g id="01-Homepage" transform="translate(-229.000000, -284.000000)" fill-rule="nonzero">
+                <g id="Homescreen" transform="translate(0.000000, 141.000000)">
+                    <g id="TRAVEL" transform="translate(30.000000, 143.000000)">
+                        <g id="airplane-departure.2.3.1" transform="translate(199.000000, 0.000000)">
+                            <g id="Filled_Icons">
+                                <path d="M12.8115,6.38015789 L22.635,10.4696842 L33.633,5.65821053 L21.98925,0.824105263 C21.7125,0.710947368 21.402,0.708684211 21.1275,0.826368421 L12.8115,4.29126316 C12.393,4.46552632 12.1185,4.87742105 12.1185,5.33457895 C12.1185,5.79173684 12.393,6.20589474 12.8115,6.38015789 Z"
+                                      id="Path"></path>
+                                <path d="M53.57025,5.67857895 C52.4115,2.87 49.08375,1.42157895 46.20375,2.62557895 L15.93225,15.8718421 L9.6525,12.7124737 C9.36,12.5653684 9.0135,12.5540526 8.7075,12.6830526 L0.8325,16.0777895 C0.48825,16.2271579 0.24075,16.5372105 0.16875,16.9038421 C0.099,17.2727368 0.216,17.6529474 0.47925,17.9177368 L10.60425,28.1019474 C10.92375,28.4233158 11.40075,28.5183684 11.817,28.3531579 L26.32725,22.5142105 L20.4705,38.2205263 C20.3085,38.6573158 20.4255,39.1484211 20.772,39.4584737 C20.9835,39.6508421 21.25125,39.7481579 21.5235,39.7481579 C21.69675,39.7481579 21.86775,39.7096842 22.0275,39.6304737 L31.0275,35.1041579 C31.24575,34.9932632 31.4235,34.8167368 31.5315,34.5972105 L40.33575,16.8925263 L50.526,13.0723158 C53.39025,11.8796316 54.76275,8.57542105 53.57025,5.67857895 Z"
+                                      id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+
+    <svg id="pi-arrow" viewBox="0 0 13 11">
+
+        <g id="***BeHeard-UI-edit-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="15-Manager-Overview" transform="translate(-948.000000, -598.000000)" fill="#E95600">
+                <g id="rows" transform="translate(0.000000, 221.000000)">
+                    <g id="Group-2-Copy-4" transform="translate(43.000000, 364.000000)">
+                        <path d="M913.542969,13.75 L917.058594,17.4414062 C917.269532,17.6523448 917.375,17.9218734 917.375,18.25 C917.375,18.554689 917.269532,18.8124989 917.058594,19.0234375 L913.542969,22.75 C913.33203,22.9609386 913.08008,23.0664062 912.787109,23.0664062 C912.494139,23.0664062 912.242189,22.9609386 912.03125,22.75 C911.820311,22.5390614 911.714844,22.2695329 911.714844,21.9414062 C911.714844,21.6132796 911.820311,21.3437511 912.03125,21.1328125 L913.71875,19.375 L906.089844,19.375 C905.785155,19.375 905.527345,19.263673 905.316406,19.0410156 C905.105468,18.8183583 905,18.554689 905,18.25 C905,17.945311 905.105468,17.6816417 905.316406,17.4589844 C905.527345,17.236327 905.785155,17.125 906.089844,17.125 L913.71875,17.125 L911.996094,15.3671875 C911.785155,15.1562489 911.679688,14.8867204 911.679688,14.5585938 C911.679688,14.2304671 911.785155,13.9609386 911.996094,13.75 C912.207032,13.5390614 912.464842,13.4335938 912.769531,13.4335938 C913.07422,13.4335938 913.33203,13.5390614 913.542969,13.75 Z"
+                              id="ion-arrow-right-c---Ionicons"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+
+
+</div>
+
+
+<div id="pi-bh-head">
+    <div id="bh-user-details">
+        <div class="bh-user-avatar" ng-style="c.avatarStyle"></div>
+        <div class="bh-head-details">
+            <div class="bh-welcome">
+                Welcome back, {{user.first_name}}
+            </div>
+
+            <div class="bh-case-count" ng-if="c.showCount"
+                 ng-show="c.pending.count>0 || c.approved.count>0 || c.rejected.count>0">
+                <div class="count-inner">
+                    <a href="?id=travel_list">
+                        <div ng-show="c.pending.count>0">
+                            <span class="count" ng-bind="c.pending.count"></span>
+                            <span class="label" ng-bind="c.pending.label"></span>
+
+                        </div>
+                        <div ng-show="c.approved.count>0">
+                            <span class="count" ng-bind="c.approved.count"></span>
+                            <span class="label" ng-bind="c.approved.label"></span>
+
+                        </div>
+                        <div ng-show="c.rejected.count>0">
+                            <span class="count" ng-bind="c.rejected.count"></span>
+                            <span class="label" ng-bind="c.rejected.label"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bh-logo"><a href="?"><span ng-bind-html="::c.beHeard"></span>
+    </a></div>
+    <div id="bh-spiel">
+        <div class="powered-by">Powered by: <img src="{{portal.logo}}" alt=""></div>
+    </div>
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

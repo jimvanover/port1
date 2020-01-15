@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sn_travel_applicat_remote_instructions" version="2" view="Mobile">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>instruction</element>
+            <list_id display_value="sn_travel_applicat_remote_instructions" element="NULL" name="sn_travel_applicat_remote_instructions" parent="NULL" relationship="NULL" sys_domain="global" view="68e93ed0dbfabf00a3be82c9689619ce">a66379d9dbacc890f33dae5a489619cf</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-10-16 13:06:30</sys_created_on>
+            <sys_id>226379d9dbacc890f33dae5a489619d1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-10-16 13:06:30</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sn_travel_applicat_remote_instructions</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-10-16 13:06:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a66379d9dbacc890f33dae5a489619cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_travel_applicat_remote_instructions</sys_name>
+            <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+            <sys_update_name>sys_ui_list_sn_travel_applicat_remote_instructions_Mobile</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-10-16 13:06:30</sys_updated_on>
+            <sys_user/>
+            <view display_value="Mobile" name="Mobile">68e93ed0dbfabf00a3be82c9689619ce</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

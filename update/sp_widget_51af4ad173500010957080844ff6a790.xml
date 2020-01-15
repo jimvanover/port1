@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function TravelListCtrl($scope, spUtil, $location) {
+	var c = this;
+	console.log(c.data.requests)
+	c.deleteCase = function(cs) {
+		c.server.get({
+			action: 'deleteCase',
+			sysId: cs.sysId
+		}).then(function(r) {
+			c.data.cases = r.data.cases;
+		});
+	}
+
+	c.pillStyle = function(stateVal) {
+		return {
+			'approved': stateVal === 3,
+			'rejected': stateVal === 4,
+			'submitted': stateVal === 1
+		};
+	};
+
+	c.openCase = function(cs_sys_id) {
+		var url = "https://hackathon209.service-now.com/travel?id=form&t=sn_travel_applicat_travel_request&sys_id="+cs_sys_id;
+		window.location.href = url
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.pi-bh-case-list {&#13;
+  margin: 20px 0 40px 0;&#13;
+  border-bottom: #979797;&#13;
+&#13;
+  table {&#13;
+    width: 100%;&#13;
+  }&#13;
+&#13;
+  .bhcd-state {&#13;
+    color: $text-color;&#13;
+  }&#13;
+&#13;
+  thead {&#13;
+    color: #848484;&#13;
+    font-weight: bold;&#13;
+&#13;
+    td {&#13;
+      padding: 12px 10px;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  tbody tr {&#13;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);&#13;
+    border-top: 1px solid rgba(151, 151, 151, 0.2);&#13;
+    color: #848484;&#13;
+    font-size: 14px;&#13;
+&#13;
+    td {&#13;
+      padding: 16px 10px;&#13;
+    }&#13;
+&#13;
+  }&#13;
+&#13;
+  .bhcl-userphoto {&#13;
+    width: 32px;&#13;
+    padding-right: 16px;&#13;
+    padding-left: 0;&#13;
+&#13;
+    &gt; div {&#13;
+      height: 32px;&#13;
+      width: 32px;&#13;
+      border-radius: 16px;&#13;
+      background-color: #666;&#13;
+      background-size: cover;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .bhcl-arrow {&#13;
+    width: 32px;&#13;
+    padding-right: 0;&#13;
+&#13;
+    svg {width: 13px;}&#13;
+&#13;
+    &gt; div {&#13;
+      width: 32px;&#13;
+      height: 32px;&#13;
+      border-radius: 16px;&#13;
+      background-color: #E5E5E5;&#13;
+      display: flex;&#13;
+      justify-content: center;&#13;
+      align-items: center;&#13;
+    }&#13;
+&#13;
+  }&#13;
+&#13;
+  .bhcl-title {&#13;
+    color: #2D2B5D;&#13;
+    font-size: 16px;&#13;
+  }&#13;
+&#13;
+&#13;
+  ul {&#13;
+    list-style: none;&#13;
+    margin: 0;&#13;
+    padding: 0;&#13;
+  }&#13;
+&#13;
+  li {&#13;
+    display: flex;&#13;
+    margin: 20px 0;&#13;
+  }&#13;
+&#13;
+  .bhcl-description {&#13;
+    &gt; div:first-of-type {&#13;
+      font-size: 21px;&#13;
+      font-weight: 300;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .bhcl-submitted, .bhcl-employee {&#13;
+&#13;
+    flex: 1 0 85px;&#13;
+&#13;
+    &gt; div:first-of-type {&#13;
+      font-weight: bold;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .bhcl-user {&#13;
+    flex: 1 0 75px;&#13;
+  }&#13;
+&#13;
+  .bhcl-photo {&#13;
+    flex: 1 0 130px;&#13;
+  }&#13;
+&#13;
+  .pi-bh-noresults {&#13;
+    text-align: center;&#13;
+  }&#13;
+&#13;
+  @media (max-width: 650px) {&#13;
+    tbody tr td {&#13;
+      padding: 16px 5px;&#13;
+    }&#13;
+&#13;
+    .bhcl-userphoto {&#13;
+      padding-right: 5px;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.pi-bh-pill {&#13;
+  background-color: #f7f7f7;&#13;
+  padding: 1px 10px;&#13;
+  border-radius: 30px;&#13;
+  display: inline-block;&#13;
+&#13;
+  &amp;.approved {&#13;
+    background-color: #246d12;&#13;
+    color: #f5e9dd;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>travel_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Travel List</name>
+        <option_schema>[{"hint":"","name":"source","section":"Data","default_value":"approver","label":"Source","type":"choice","choices":[{"label":"approver","value":"approver"},{"label":"submitter","value":"submitter"}]}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var gr = new GlideRecord('sn_travel_applicat_travel_request');
+	gr.addQuery('opened_by', gs.getUserID());
+	gr.orderBy('state');
+	gr.setLimit(20);
+	gr.query();
+
+	var items = [];
+
+	var obj;
+	while (gr.next()) {
+		obj = {};
+		$sp.getRecordElements(obj,gr,'sys_id, opened_by, opened_at,short_description, approval, state');
+		obj.opened_by.avatar = gr.opened_by.avatar.toString()+".iix";
+		items.push(obj);
+	}
+
+	data.requests = items;
+
+
+	return;
+	if (input && input.action === 'deleteCase') {
+		var cs = new Case(input.sysId);
+		cs.deleteRecord();
+	}
+
+
+	if (options.source === 'approver') {
+
+		data.type = 'idea';
+
+		data.cases = {
+			idea: Case.getForApprovals('idea'),
+			concern: Case.getForApprovals('concern')
+		};
+	} else {
+
+		data.type = $sp.getParameter('type');
+
+		if (data.type === 'idea') {
+
+			data.cases = {
+				idea: Case.getForCurrentUser('idea')
+			};
+
+		} else {
+
+			data.cases = {
+				concern: Case.getForCurrentUser('concern')
+			};
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-04 04:54:09</sys_created_on>
+        <sys_id>51af4ad173500010957080844ff6a790</sys_id>
+        <sys_mod_count>118</sys_mod_count>
+        <sys_name>Travel List</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_widget_51af4ad173500010957080844ff6a790</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-16 14:48:34</sys_updated_on>
+        <template><![CDATA[<div class="pi-bh-case-list">
+
+    <table ng-if="c.data.requests.length > 0">
+
+        <thead>
+        <tr>
+            <td colspan="2">${Employee}</td>
+            <td>${Requested}</td>
+            <td>${Status}</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cs in c.data.requests">
+            <td class="bhcl-userphoto">
+                <div ng-style="{'background-image': 'url(' + cs.opened_by.avatar + ')'}"></div>
+            </td>
+            <td>{{::cs.opened_by.display_value}}</td>
+            <td><span><sn-time-ago timestamp="::cs.opened_at.value"></sn-time-ago></span></td>
+            <td>
+                <div class="pi-bh-pill" ng-class="::cs.approval.value">{{::cs.approval.display_value}}</div>
+            </td>
+            <td class="bhcl-arrow">
+                <div ng-click="c.openCase(cs.sys_id.display_value)">
+                    <svg viewBox="0 0 13 11" preserveAspectRatio="none">
+                        <use xlink:href="#pi-arrow"></use>
+                    </svg>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div ng-if="c.data.requests.length === 0"
+         class="alert alert-info pi-bh-noresults">
+        ${No results}
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

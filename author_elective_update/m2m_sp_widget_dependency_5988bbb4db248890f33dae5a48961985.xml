@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="Google Maps API key">89963734db248890f33dae5a48961910</sp_dependency>
+        <sp_widget display_value="Travel Record Producer Summary">edaf5e2173500010957080844ff6a710</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>fabio</sys_created_by>
+        <sys_created_on>2019-10-15 09:31:05</sys_created_on>
+        <sys_id>5988bbb4db248890f33dae5a48961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Google Maps API key.Travel Record Producer Summary</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_5988bbb4db248890f33dae5a48961985</sys_update_name>
+        <sys_updated_by>fabio</sys_updated_by>
+        <sys_updated_on>2019-10-15 09:31:05</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Travel Application">402be69673000010957080844ff6a740</application>
+        <file_path/>
+        <instance_id>fb8f87bedbfae600536af5b0cf9619e1</instance_id>
+        <instance_name>hackathon209</instance_name>
+        <name>m2m_sp_widget_dependency_5988bbb4db248890f33dae5a48961985</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="Google Maps API key">89963734db248890f33dae5a48961910</sp_dependency><sp_widget display_value="Travel Record Producer Summary">edaf5e2173500010957080844ff6a710</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>fabio</sys_created_by><sys_created_on>2019-10-15 09:31:05</sys_created_on><sys_id>5988bbb4db248890f33dae5a48961985</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Google Maps API key.Travel Record Producer Summary</sys_name><sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package><sys_policy/><sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope><sys_update_name>m2m_sp_widget_dependency_5988bbb4db248890f33dae5a48961985</sys_update_name><sys_updated_by>fabio</sys_updated_by><sys_updated_on>2019-10-15 09:31:05</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>1918735326</payload_hash>
+        <record_name>Google Maps API key.Travel Record Producer Summary</record_name>
+        <reverted_from/>
+        <source>a66dd8ee1bdc4890a67664a6bc4bcbc8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>fabio</sys_created_by>
+        <sys_created_on>2019-10-15 09:31:05</sys_created_on>
+        <sys_id>d588bbb4db248890f33dae5a48961987</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16dcec1b99c0000001</sys_recorded_at>
+        <sys_updated_by>fabio</sys_updated_by>
+        <sys_updated_on>2019-10-15 09:31:05</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>1188bbb46f248890fdca7fc0f82aca87</update_guid>
+        <update_guid_history>1188bbb46f248890fdca7fc0f82aca87:1918735326</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Google Maps API key.Travel Record Producer Summary">37e67011dba8c890f33dae5a48961964</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>joel.andersson</sys_created_by>
+        <sys_created_on>2019-10-16 08:42:16</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>65a7331c021248debeb045f0bec89fc4</sys_id>
+        <sys_metadata>5988bbb4db248890f33dae5a48961985</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Google Maps API key.Travel Record Producer Summary</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_scope_delete/>
+        <sys_update_name>m2m_sp_widget_dependency_5988bbb4db248890f33dae5a48961985</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_5988bbb4db248890f33dae5a48961985">d588bbb4db248890f33dae5a48961987</sys_update_version>
+        <sys_updated_by>joel.andersson</sys_updated_by>
+        <sys_updated_on>2019-10-16 08:42:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

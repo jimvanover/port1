@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <sc_cat_item display_value="Travel Request">c0393b2273c00010957080844ff6a70e</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-25 23:54:48</sys_created_on>
+        <sys_id>d26e7fe273c00010957080844ff6a7ad</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Travel Info.Travel Request</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>io_set_item_d26e7fe273c00010957080844ff6a7ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-09-25 23:54:48</sys_updated_on>
+        <variable_set display_value="Travel Info">956e7fe273c00010957080844ff6a78f</variable_set>
+    </io_set_item>
+</record_update>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="DELETE">
+        <order>200</order>
+        <sc_cat_item display_value="Travel Request">c0393b2273c00010957080844ff6a70e</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-25 23:54:58</sys_created_on>
+        <sys_id>b07ebfe273c00010957080844ff6a708</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Customer Info.Travel Request</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>io_set_item_b07ebfe273c00010957080844ff6a708</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-09-25 23:55:24</sys_updated_on>
+        <variable_set display_value="Customer Info">af6e7fe273c00010957080844ff6a706</variable_set>
+    </io_set_item>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Travel Application">402be69673000010957080844ff6a740</application>
+        <file_path/>
+        <instance_id>fb8f87bedbfae600536af5b0cf9619e1</instance_id>
+        <instance_name>hackathon209</instance_name>
+        <name>io_set_item_b07ebfe273c00010957080844ff6a708</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item"><io_set_item action="INSERT_OR_UPDATE"><order>200</order><sc_cat_item display_value="Travel Request">c0393b2273c00010957080844ff6a70e</sc_cat_item><sys_class_name>io_set_item</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2019-09-25 23:54:58</sys_created_on><sys_id>b07ebfe273c00010957080844ff6a708</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Customer Info.Travel Request</sys_name><sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package><sys_policy/><sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope><sys_update_name>io_set_item_b07ebfe273c00010957080844ff6a708</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-09-25 23:55:24</sys_updated_on><variable_set display_value="Customer Info">af6e7fe273c00010957080844ff6a706</variable_set></io_set_item></record_update>]]></payload>
+        <payload_hash>173871123</payload_hash>
+        <record_name>Customer Info.Travel Request</record_name>
+        <reverted_from/>
+        <source>c2234551dbe8c890f33dae5a489619ff</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>joel.andersson</sys_created_by>
+        <sys_created_on>2019-10-16 09:35:46</sys_created_on>
+        <sys_id>a3234951dbe8c890f33dae5a48961997</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16dd3ec60690000001</sys_recorded_at>
+        <sys_updated_by>joel.andersson</sys_updated_by>
+        <sys_updated_on>2019-10-16 09:35:46</sys_updated_on>
+        <type>Catalog Variable Set</type>
+        <update_guid>6323495109e8c890e6c36b919919d297</update_guid>
+        <update_guid_history>c1ef6b38c1e08890d3fec16921243f16:-848346617,c1ef6b38c1e08890d3fec16921243f16:-848346617,df5b102e90dc489038400019c20fe745:173871123</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Customer Info.Travel Request">20419edddb200c90f33dae5a489619e9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2019-10-16 15:16:53</sys_created_on>
+        <sys_db_object display_value="" name="io_set_item">io_set_item</sys_db_object>
+        <sys_id>24ca8f0460e24db8a65954f93bf9ac90</sys_id>
+        <sys_metadata>b07ebfe273c00010957080844ff6a708</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Info.Travel Request</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_scope_delete display_value="">136f42fafe74480089b2e97e72c9c100</sys_scope_delete>
+        <sys_update_name>io_set_item_b07ebfe273c00010957080844ff6a708</sys_update_name>
+        <sys_update_version display_value="io_set_item_b07ebfe273c00010957080844ff6a708">a3234951dbe8c890f33dae5a48961997</sys_update_version>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2019-10-16 15:16:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

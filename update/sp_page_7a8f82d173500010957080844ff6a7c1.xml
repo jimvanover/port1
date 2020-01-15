@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>travel_list</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-10-04 04:53:43</sys_created_on>
+        <sys_id>7a8f82d173500010957080844ff6a7c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>travel_list</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_page_7a8f82d173500010957080844ff6a7c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 04:53:43</sys_updated_on>
+        <title>Travel List</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=7a8f82d173500010957080844ff6a7c1"/>
+</record_update>

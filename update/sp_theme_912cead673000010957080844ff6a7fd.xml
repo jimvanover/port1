@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$primary-color: #30496E;&#13;
+$secondary-color: #F2EADD;&#13;
+&#13;
+&#13;
+html, body {&#13;
+  overflow: hidden;&#13;
+  -webkit-overflow-scrolling: auto;&#13;
+}&#13;
+&#13;
+body {&#13;
+  -webkit-font-smoothing: antialiased;&#13;
+  -moz-osx-font-smoothing: grayscale;&#13;
+}&#13;
+&#13;
+.sp-scroll {&#13;
+  overflow: hidden;&#13;
+}&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+// Progress styling&#13;
+$pi-bh-progress-background: #29496f !default;&#13;
+$pi-bh-progress-indicator-color: #f4eadc !default;&#13;
+$pi-bh-progress-indicator-color-active: #fc8771 !default;&#13;
+$pi-bh-progress-btn-background: #0a6692 !default;&#13;
+$pi-bh-progress-text-color: #fc8771 !default;&#13;
+&#13;
+.bhp-indicators {&#13;
+  display: flex;&#13;
+  justify-content: center;&#13;
+  align-items: center;&#13;
+  max-width: 700px;&#13;
+  width: 100%;&#13;
+  margin: 0 auto;&#13;
+  padding-left: 20px;&#13;
+}&#13;
+&#13;
+.bhpi-circle {&#13;
+  background-color: $pi-bh-progress-indicator-color;&#13;
+  height: 12px;&#13;
+  width: 12px;&#13;
+  border-radius: 6px;&#13;
+  flex: 0 0 12px;&#13;
+&#13;
+  -webkit-transition: background-color 0.3s;&#13;
+  transition: background-color 0.3s;&#13;
+  transition-delay: 0.5s;&#13;
+&#13;
+  &amp;.bhps-active {&#13;
+    background-color: $pi-bh-progress-indicator-color-active;&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+.bhpi-line {&#13;
+  flex: 1 1 100px;&#13;
+  height: 3px;&#13;
+  background-color: $pi-bh-progress-indicator-color;&#13;
+&#13;
+  div {&#13;
+    width: 0px;&#13;
+    -webkit-transition: width 0.5s;&#13;
+    transition: width 0.5s;&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+.bhps-active div {&#13;
+  width: 100%;&#13;
+  height: 3px;&#13;
+  background-color: $pi-bh-progress-indicator-color-active;&#13;
+}&#13;
+&#13;
+.pi-bh-progress {&#13;
+  background-color: $pi-bh-progress-background;&#13;
+  height: 80px;&#13;
+  color: $pi-bh-progress-text-color;&#13;
+  padding: 20px;&#13;
+}&#13;
+&#13;
+.bhp-stepno {&#13;
+  text-transform: uppercase;&#13;
+  text-align: center;&#13;
+  letter-spacing: 3px;&#13;
+  font-size: 15px;&#13;
+}&#13;
+&#13;
+.bhp-steps {&#13;
+  flex: 1 0 auto;&#13;
+  height: 40px;&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+  justify-content: space-between;&#13;
+}&#13;
+&#13;
+.pi-bhp-container {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  margin: 0 40px 0 auto;&#13;
+}&#13;
+&#13;
+.bhp-home {&#13;
+  width: 40px;&#13;
+  height: 40px;&#13;
+  display: inline-block;&#13;
+  position: relative;&#13;
+  z-index: 20;&#13;
+  display: flex;&#13;
+  justify-content: center;&#13;
+  align-items: center;&#13;
+&#13;
+  polygon {&#13;
+    fill: $pi-bh-progress-indicator-color-active;&#13;
+  }&#13;
+&#13;
+  &amp;::before {&#13;
+    content: "";&#13;
+    display: block;&#13;
+    position: absolute;&#13;
+    z-index: -1;&#13;
+    width: 100%;&#13;
+    height: 100%;&#13;
+    background-color: $pi-bh-progress-btn-background;&#13;
+    border-radius: 2px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.b-b {&#13;
+  border: none;&#13;
+&#13;
+}&#13;
+&#13;
+.panel {&#13;
+  border: none;&#13;
+  box-shadow: none;&#13;
+}&#13;
+&#13;
+div[ng-if="subheader"] {&#13;
+  background-color: $primary-color;&#13;
+}</css_variables>
+        <footer/>
+        <footer_fixed>false</footer_fixed>
+        <header display_value="Travel Request Header">19e679c373c00010957080844ff6a768</header>
+        <name>Travel Theme</name>
+        <navbar_fixed>false</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-24 23:17:02</sys_created_on>
+        <sys_id>912cead673000010957080844ff6a7fd</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Travel Theme</sys_name>
+        <sys_package display_value="Travel Application" source="sn_travel_applicat">402be69673000010957080844ff6a740</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Travel Application">402be69673000010957080844ff6a740</sys_scope>
+        <sys_update_name>sp_theme_912cead673000010957080844ff6a7fd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-10-04 05:57:06</sys_updated_on>
+    </sp_theme>
+</record_update>

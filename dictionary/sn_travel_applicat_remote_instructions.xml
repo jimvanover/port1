@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Remote_Instructions" max_length="40" name="sn_travel_applicat_remote_instructions" type="collection">
+        <element label="instruction" max_length="40" name="instruction" type="string"/>
+    </element>
+</database>
